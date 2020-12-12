@@ -21,7 +21,7 @@ $ $AZURE_CON_STR
 ```
 Remember to `source ~/.zshrc` or `source ~/.bashrc` after setting the environment variable in order for it to take effect. Alternatively you can kill your terminal instance and restart it. 
 
-In order to execute the script, you should to include two arguments in the command - `container` and `path`.
+In order to execute the script, you should include two arguments in the command - `container` and `path`.
 The path can either be absolute or relative, and it is recommended to have your data folder in the same working directory for simplicity and less room for error.
 
 ```bash
