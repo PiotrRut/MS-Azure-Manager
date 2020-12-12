@@ -1,4 +1,4 @@
-# MS Azure File Uploader 
+# MS Azure File Uploader 📂
 
 The reason for creating this script was simple - I am already using another script created by my friend [Reece](https://github.com/Reeceeboii/Batch-Compression) 
 to automatically batch-compress all my images, optimising them for being displayed on my website. However, that solution still required me to upload those files
@@ -6,7 +6,7 @@ manually to my MS Azure blob storage, from where my Node backend was grabbing th
 
 This script automates the upload process for me, optimising my workflow, and making uploading files easier and faster!
 
-## Usage
+## Usage 👨🏻‍💻
 
 **Make sure Python is installed and configured if you're using Windows - it comes preinstalled on most machines running macOS and Linux.**
 
