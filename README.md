@@ -11,7 +11,7 @@ This script automates the upload process for me, optimising my workflow, and mak
 **Make sure Python is installed and configured if you're using Windows - it comes preinstalled on most machines running macOS and Linux.**
 
 Before executing, you have to configure your Azure account connection string as an environment variable in your system.
-You can find it in your Azure portal by navigating to your **storage account** -> **settings** -> **access keys**, and copying **"connection string"** under **"key 1"**
+You can find it in your Azure portal by navigating to your **storage account** -> **settings** -> **access keys**, and copying **"connection string"** under **"key 1"** - they usually start with `DefaultEndpointsProtocol=https...`
 
 ```bash
 $ export AZURE_CON_STR=<your_connection_string>
