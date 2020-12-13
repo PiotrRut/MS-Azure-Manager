@@ -28,9 +28,9 @@ The path can either be absolute or relative, and it is recommended to have your 
 $ python uploader.py <container_name> <file_path>
 
 # example (this would grab the files from the "files" folder in the same working directory):
-└── src
-    ├── uploader.py
-    └── /files
+# └── src
+#     ├── uploader.py
+#     └── /files
 $ python uploader.py container1 ./files
 ```
 
