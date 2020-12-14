@@ -53,4 +53,10 @@ The format of the command is as follows:
 $ python am.py showall <acc_connection_uri> <container_name> <sas_token>
 ```
 
+## Feature list 💭
 
+- [x] Upload new blobs
+- [x] List all blobs
+- [ ] Download blobs
+- [ ] Create/delete containers
+- [ ] Delete blobs
