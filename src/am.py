@@ -11,7 +11,7 @@ def decider():
         if sys.argv[1] == 'upload':
             if len(sys.argv) < 3:
                 exit("Please provide the name of your container name as first argument, and the path to your folder as "
-                     "second.\nThe correct format is: 'am.py <container> <path>'")
+                     "second.\nThe correct format is: 'am.py upload <container> <path>'")
             else:
                 # Did the user provide a valid path?
                 if not os.path.exists(sys.argv[3]):
