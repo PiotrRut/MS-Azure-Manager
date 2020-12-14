@@ -50,6 +50,7 @@ What you'll need is:
 The format of the command is as follows:
 
 ```bash
+# <acc_connection_uri> & <sas_token> must be wrapped in quotes (" ")
 $ python am.py showall <acc_connection_uri> <container_name> <sas_token>
 ```
 
@@ -57,8 +58,8 @@ $ python am.py showall <acc_connection_uri> <container_name> <sas_token>
 
 ✅ - Implemented / ❌ - Upcoming
 
-✅ Upload new blobs
-✅ List all blobs
-❌ Download blobs
-❌ Create/delete containers
-❌ Delete blobs
+✅ - Upload new blobs
+✅ - List all blobs
+❌ - Download blobs
+❌ - Create/delete containers
+❌ - Delete blobs
