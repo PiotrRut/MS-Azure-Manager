@@ -13,6 +13,17 @@ def decider():
                 exit("Please provide the name of your container name as first argument, and the path to your folder as "
                      "second.\nThe correct format is: 'am.py <container> <path>'")
             else:
+                # Did the user provide a valid path?
+                if not os.path.exists(sys.argv[3]):
+                    exit("Error: Please provide a valid path")
+                # If they did, is that path a folder?
+                if not os.path.isdir(sys.argv[3]):
+                    exit("Error: Path is not a folder")
+                # If it is, does it contain any files?
+                if os.path.exists(sys.argv[3]) and not os.listdir(sys.argv[3]):
+                    exit("Error: Directory is empty")
+
+                # If all above are true, proceeed to upload files
                 print("Starting upload")
                 upload_all()
                 print(f"All files successfully uploaded to {sys.argv[2]} container")
@@ -35,7 +46,7 @@ def upload_all():
     all_files = [f for f in os.listdir(sys.argv[3])]
     for file in all_files:
         blob_client = blob_service_client.get_blob_client(container=sys.argv[2], blob=file)
-        with open(os.path.join(sys.argv[2], file), "rb") as data:
+        with open(os.path.join(sys.argv[3], file), "rb") as data:
             # Upload all files to Azure
             blob_client.upload_blob(data, content_settings=image_content_setting)
 
