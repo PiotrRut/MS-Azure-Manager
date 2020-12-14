@@ -57,8 +57,8 @@ $ python am.py showall <acc_connection_uri> <container_name> <sas_token>
 
 ✅ - Implemented / ❌ - Upcoming
 
-- ✅ Upload new blobs
-- ✅ List all blobs
-- ❌ Download blobs
-- ❌ Create/delete containers
-- ❌ Delete blobs
+✅ Upload new blobs
+✅ List all blobs
+❌ Download blobs
+❌ Create/delete containers
+❌ Delete blobs
