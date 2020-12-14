@@ -9,7 +9,7 @@ from azure.storage.blob import BlobServiceClient, ContentSettings, ContainerClie
 def decider():
     if len(sys.argv) > 1:
         if sys.argv[1] == 'upload':
-            if len(sys.argv) < 3:
+            if len(sys.argv) <= 3:
                 exit("Please provide the name of your container name as first argument, and the path to your folder as "
                      "second.\nThe correct format is: 'am.py upload <container> <path>'")
             else:
@@ -23,12 +23,12 @@ def decider():
                 if os.path.exists(sys.argv[3]) and not os.listdir(sys.argv[3]):
                     exit("Error: Directory is empty")
 
-                # If all above are true, proceeed to upload files
+                # If all above are true, proceed to upload files
                 print("Starting upload")
                 upload_all()
                 print(f"All files successfully uploaded to {sys.argv[2]} container")
         elif sys.argv[1] == 'showall':
-            if len(sys.argv) < 4:
+            if len(sys.argv) <= 4:
                 exit(
                     "Please provide command arguments in this order: acc_connection_uri, container_name, sas_token")
             else:
