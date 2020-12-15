@@ -51,7 +51,7 @@ def decider():
             list_containers()
 
     else:
-        print('\nError: Invalid command. Use "am.py --help" for available commands')
+        exit('\nError: Invalid command. Use "am.py --help" for available commands')
 
 
 # Upload all blobs from a specified folder to a specified container
@@ -59,8 +59,8 @@ def upload_all():
     # Initialize the connection to Azure storage account
     image_content_setting = ContentSettings(content_type='image/jpeg')
     # Go through all files in provided directory
-    all_files = [f for f in os.listdir(sys.argv[3])]
-    for file in all_files:
+    files = [f for f in os.listdir(sys.argv[3])]
+    for file in files:
         blob_client = blob_service_client.get_blob_client(container=sys.argv[2], blob=file)
         with open(os.path.join(sys.argv[3], file), "rb") as data:
             # Upload all files to Azure

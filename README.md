@@ -82,8 +82,8 @@ $ python am.py list <acc_connection_uri> <container_name> <sas_token>
 In order to download blobs, you will need the same account information as for the "List blobs" function, so your
 `connection URI` and your `SAS`. **You should however allow all three of the resource types to access your `SAS` (service, container, object) when generating it.**
 
-All downloads are automatically saved in to `src/downloads` and the program will create this directory if it
-doesn't exist. This can also be changed by modifying `download_dir` from within the code.
+All downloads are automatically saved in to `src/downloads`, and the program will create this directory if it
+doesn't exist. You can change the output directory by editing `download_dir`.
 
 To download _all blobs_ in a container of your choice, you can run:
 
