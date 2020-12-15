@@ -1,6 +1,6 @@
 import os
 import sys
-from helpers import show_help
+from helpers import show_help, parser
 
 from azure.storage.blob import BlobServiceClient, ContentSettings, ContainerClient
 
@@ -47,6 +47,8 @@ def decider():
             if len(sys.argv) <= 2:
                 exit("Please provide a name for the container to be deleted")
             delete_container()
+        elif sys.argv[1] == 'lc':
+            list_containers()
 
     else:
         print('\nError: Invalid command. Use "am.py --help" for available commands')
@@ -104,12 +106,20 @@ def download_blobs():
     print(f"Successfully downloaded your specified files to the {download_dir} folder")
 
 
+# List all containers
+def list_containers():
+    container_list = blob_service_client.list_containers()
+    for container in container_list:
+        print(f"Container: {container['name']}\n")
+
+
 # Create a new container
 def create_container():
     blob_service_client.create_container(sys.argv[2])
     print(f"Container: '{sys.argv[2]}' created")
 
 
+# Delete a container
 def delete_container():
     blob_service_client.delete_container(sys.argv[2])
     print(f"Container '{sys.argv[2]}' has been deleted")

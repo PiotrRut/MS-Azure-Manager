@@ -35,6 +35,11 @@ To create a new container, simply  run:
 $ python am.py cc <container_name>
 ```
 
+To get a list of all containers, run:
+```bash
+$ python am.py lc
+```
+
 To delete one, run:
 ```bash
 $ python am.py dc <container_name>
