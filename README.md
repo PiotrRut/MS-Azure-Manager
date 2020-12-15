@@ -28,6 +28,18 @@ Remember to `source ~/.zshrc` or `source ~/.bashrc` after setting the environmen
 $ python am.py --help
 ```
 
+### Container management 📦
+
+To create a new container, simply  run:
+```bash
+$ python am.py cc <container_name>
+```
+
+To delete one, run:
+```bash
+$ python am.py dc <container_name>
+```
+
 ### Upload files ⤴️
 In order to execute the script, you should include two arguments in the command - `container` and `path`.
 The path can either be absolute or relative, and it is recommended to have your data folder in the same working directory for simplicity and less room for error.
@@ -92,5 +104,5 @@ $ python am.py download <acc_connection_uri> <container_name> <sas_token> <blob_
 ✅ - Upload new blobs
 ✅ - List all blobs
 ✅ - Download blobs
-❌ - Create/delete containers
+✅ - Create/delete containers
 ❌ - Delete blobs

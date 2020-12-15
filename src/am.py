@@ -33,14 +33,20 @@ def decider():
             if len(sys.argv) <= 4:
                 exit(
                     "Please provide command arguments in this order: acc_connection_uri, container_name, sas_token")
-            else:
-                list_blobs()
+            list_blobs()
         elif sys.argv[1] == 'download':
             if len(sys.argv) <= 4:
                 exit(
                     "Please provide command arguments in this order: acc_connection_uri, container_name, sas_token")
-            else:
-                download_blobs()
+            download_blobs()
+        elif sys.argv[1] == 'cc':
+            if len(sys.argv) <= 2:
+                exit("Please provide a name for your new container")
+            create_container()
+        elif sys.argv[1] == 'dc':
+            if len(sys.argv) <= 2:
+                exit("Please provide a name for the container to be deleted")
+            delete_container()
 
     else:
         print('\nError: Invalid command. Use "am.py --help" for available commands')
@@ -96,6 +102,17 @@ def download_blobs():
                 with open(os.path.join(download_dir, blob.name), "wb") as file:
                     file.write(container_client.get_blob_client(blob.name).download_blob().readall())
     print(f"Successfully downloaded your specified files to the {download_dir} folder")
+
+
+# Create a new container
+def create_container():
+    blob_service_client.create_container(sys.argv[2])
+    print(f"Container: '{sys.argv[2]}' created")
+
+
+def delete_container():
+    blob_service_client.delete_container(sys.argv[2])
+    print(f"Container '{sys.argv[2]}' has been deleted")
 
 
 if __name__ == "__main__":
