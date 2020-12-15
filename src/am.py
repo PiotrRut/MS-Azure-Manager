@@ -26,7 +26,7 @@ def decider():
                     exit("Error: Directory is empty")
 
                 # If all above are true, proceed to upload files
-                print("Starting upload")
+                print("Starting upload...")
                 upload_all()
                 print(f"All files successfully uploaded to {sys.argv[2]} container")
         elif sys.argv[1] == 'list':
@@ -72,6 +72,7 @@ def list_blobs():
     container_client = ContainerClient(sys.argv[2], sys.argv[3], sys.argv[4])
     blobs = container_client.list_blobs()
 
+    print("Listing all blobs:")
     for blob in blobs:
         print(blob.name + '\n')
 
@@ -82,6 +83,7 @@ def download_blobs():
     container_client = ContainerClient(sys.argv[2], sys.argv[3], sys.argv[4])
     blobs = container_client.list_blobs()
 
+    print("Starting download...")
     # If we have 6 arguments, the user has specified a blob to download as last argument
     if len(sys.argv) == 6:
         # If download dir doesn't exist, make it first
@@ -89,9 +91,11 @@ def download_blobs():
             os.mkdir(download_dir)
             with open(os.path.join(download_dir, sys.argv[5]), "wb") as file:
                 file.write(container_client.get_blob_client(sys.argv[5]).download_blob().readall())
+                print(f"Downloaded file: {sys.argv[5]}")
         else:
             with open(os.path.join(download_dir, sys.argv[5]), "wb") as file:
                 file.write(container_client.get_blob_client(sys.argv[5]).download_blob().readall())
+                print(f"Downloaded file: {sys.argv[5]}")
     # Otherwise download all blobs in container
     else:
         if not os.path.exists(download_dir):
@@ -99,10 +103,12 @@ def download_blobs():
             for blob in blobs:
                 with open(os.path.join(download_dir, blob.name), "wb") as file:
                     file.write(container_client.get_blob_client(blob.name).download_blob().readall())
+                    print(f"Downloaded file: {blob.name}")
         else:
             for blob in blobs:
                 with open(os.path.join(download_dir, blob.name), "wb") as file:
                     file.write(container_client.get_blob_client(blob.name).download_blob().readall())
+                    print(f"Downloaded file: {blob.name}")
     print(f"Successfully downloaded your specified files to the {download_dir} folder")
 
 
