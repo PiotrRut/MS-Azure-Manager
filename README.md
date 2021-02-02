@@ -1,6 +1,6 @@
 # MS Azure Manager 📂
 
-🚨 **This program is for blob storage only - it does not support Azure Data Lake storage** 🚨
+🚨 **This program is for blob storage only - it does not support Azure Data Lake storage**
 
 The reason for creating this script was simple - I am already using another script created by my friend [Reece](https://github.com/Reeceeboii/Batch-Compression) 
 to automatically batch-compress all my images, optimising them for being displayed on my website. However, that solution still required me to upload those files
