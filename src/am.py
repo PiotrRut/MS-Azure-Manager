@@ -7,7 +7,7 @@ from azure.storage.blob import BlobServiceClient, ContentSettings, ContainerClie
 try:
     blob_service_client = BlobServiceClient.from_connection_string(os.getenv('AZURE_CON_STR'))
 except:
-    blob_service_client = exit("Error: Please define your Azure connection string before continuing.")
+    exit("Error: Please define your Azure connection string before continuing.")
 
 
 # Decide which function to run based on user input
